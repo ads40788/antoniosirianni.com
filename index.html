@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antonio Sirianni — Data Scientist & Network Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1814;
+      --paper: #f5f2eb;
+      --accent: #c0392b;
+      --muted: #7a7568;
+      --rule: #d8d3c8;
+      --card-bg: #eeeae0;
+      --mono: 'DM Mono', monospace;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .hero-text {}
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+      line-height: 1.2;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .hero-bio {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--ink);
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--rule);
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      color: var(--muted);
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.65rem 1.2rem;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--rule);
+      color: var(--muted);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+
+    /* ── SIDEBAR CARD ── */
+    .hero-card {
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      padding: 2rem;
+      position: relative;
+      top: 1rem;
+    }
+
+    .hero-card img {
+      width: 100%;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      margin-bottom: 1.2rem;
+      filter: grayscale(15%);
+    }
+
+    .hero-card-placeholder {
+      width: 100%;
+      aspect-ratio: 3/2;
+      background: var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-card-caption {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+    }
+
+    .hero-card-caption strong {
+      display: block;
+      color: var(--ink);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── SECTION ── */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .section-count {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+
+    .project-card {
+      background: var(--paper);
+      padding: 1.8rem;
+      transition: background 0.2s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .project-card:hover {
+      background: var(--card-bg);
+    }
+
+    .project-domain {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .project-meta {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--rule);
+      letter-spacing: 0.05em;
+      display: flex;
+      gap: 0.8rem;
+      border-top: 1px solid var(--rule);
+      padding-top: 0.8rem;
+      margin-top: auto;
+    }
+
+    .project-meta span {
+      color: var(--muted);
+    }
+
+    /* ── RESEARCH ── */
+    .research-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .research-item {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .research-year {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      padding-top: 0.2rem;
+    }
+
+    .research-content {}
+
+    .research-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+
+    .research-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .research-title a:hover { color: var(--accent); }
+
+    .research-venue {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    .research-abstract {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── ABOUT STRIP ── */
+    .about-strip {
+      background: var(--card-bg);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .about-strip-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .about-block h3 {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .about-block p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+
+    .stat-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 0.6rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .stat-val {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--ink);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--rule);
+    }
+
+    .footer-name {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--ink); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow { animation: fadeUp 0.5s ease both; }
+    h1            { animation: fadeUp 0.5s ease 0.1s both; }
+    .hero-bio     { animation: fadeUp 0.5s ease 0.2s both; }
+    .hero-tags    { animation: fadeUp 0.5s ease 0.3s both; }
+    .hero-links   { animation: fadeUp 0.5s ease 0.4s both; }
+    .hero-card    { animation: fadeUp 0.5s ease 0.2s both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 3rem 1.5rem 2rem;
+      }
+      .hero-card { top: 0; order: -1; }
+      .hero-card-placeholder { aspect-ratio: 3/2; }
+      .about-strip-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">A.D. Sirianni</a>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="/teaching.html">Teaching</a></li>
+      <li><a href="/cv.html">CV</a></li>
+      <li><a href="/contact-info.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Data Scientist &amp; Social Scientist</div>
+      <p class="hero-bio">
+        I analyze how people behave collectively and competitively — using data, simulations, and math, across sports, politics, and markets.
+      </p>
+      <div class="hero-tags">
+        <span class="tag">Graph Analytics</span>
+        <span class="tag">Network Science</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Computational Social Science</span>
+        <span class="tag">Data Visualization</span>
+      </div>
+      <div class="hero-links">
+        <a href="#projects" class="btn btn-primary">View Work</a>
+        <a href="/research.html" class="btn btn-outline">Publications</a>
+        <a href="/cv.html" class="btn btn-outline">CV</a>
+        <a href="https://github.com/" target="_blank" class="btn btn-outline">GitHub</a>
+        <a href="https://scholar.google.com/" target="_blank" class="btn btn-outline">Google Scholar</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <!-- Replace with: <img src="your-photo.jpg" alt="Antonio Sirianni"> -->
+      <div class="hero-card-placeholder">[ photo ]</div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header">
+      <h2 class="section-title">Projects</h2>
+      <span class="section-count">selected work</span>
+    </div>
+    <div class="projects-grid">
+
+      <a href="/interactive.html" class="project-card">
+        <div class="project-domain">Sports Analytics</div>
+        <div class="project-title">NHL Fighting Networks</div>
+        <p class="project-desc">
+          A decade of on-ice altercations mapped as a social network. 
+          Who fights whom, and what does it reveal about team dynamics, 
+          deterrence, and the unwritten rules of hockey culture?
+        </p>
+        <div class="project-meta">
+          <span>Network Analysis</span>
+          <span>·</span>
+          <span>Published Research</span>
+          <span>·</span>
+          <span>Interactive</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="project-domain">NFL Analytics</div>
+        <div class="project-title">SWEEP & Football Analytics</div>
+        <p class="project-desc">
+          Visualizing game excitement and win probability swings across 
+          an NFL season. Which games were actually worth watching — 
+          and what does the data say about how football is played?
+        </p>
+        <div class="project-meta">
+          <span>Interactive Viz</span>
+          <span>·</span>
+          <span>Win Probability</span>
+        </div>
+      </a>
+
+      <a href="#" class="project-card">
+        <div class="project-domain">Political Sociology</div>
+        <div class="project-title">Polarization & Political Behavior</div>
+        <p class="project-desc">
+          Research and interactive work on homophily, the median voter, 
+          and how social sorting shapes political discourse — including 
+          a simulation game exploring how campaigns navigate coalitions.
+        </p>
+        <div class="project-meta">
+          <span>Network Theory</span>
+          <span>·</span>
+          <span>Simulation</span>
+          <span>·</span>
+          <span>Published Research</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ABOUT STRIP -->
+  <div class="about-strip">
+    <div class="about-strip-inner" style="grid-template-columns: 1fr;">
+      <div class="about-block">
+        <h3>Background</h3>
+        <p>
+          I grew up in Buffalo and studied Psychology at Yale, where I also rowed varsity crew. After college I landed at an under-the-radar e-commerce company called CSN Stores, cutting my data teeth optimizing paid search campaigns and pioneering their approach to clickstream analytics, while the company rebranded into the e-commerce giant now known as Wayfair. I went back to graduate school to apply those skills to the social science puzzles I'd encountered as an undergrad, finishing a PhD in Sociology at Cornell with a dissertation on, of all things, the social dynamics of fighting in the National Hockey League.</p><p style="margin-top:1rem;">After a postdoc at Dartmouth, I have returned to a career in data science and occasionally teach a course in social network analysis at Georgetown. Outside work, I run marathons, play ice hockey, try to keep up with the Washington, D.C. live music scene, and make pilgrimages back to Western New York to watch the Bills.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="section-header">
+      <h2 class="section-title">Selected Research</h2>
+      <span class="section-count"><a href="/research.html" style="color:var(--muted);text-decoration:none;font-family:var(--mono);font-size:0.68rem;">all publications →</a></span>
+    </div>
+    <div class="research-list">
+
+      <div class="research-item">
+        <div class="research-year">2024</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://academic.oup.com/pnasnexus/article/3/12/pgae549/7920551" target="_blank">Complements and competitors: Examining technological co-diffusion and relatedness on a collaborative coding platform</a></div>
+          <div class="research-venue">PNAS Nexus</div>
+          <p class="research-abstract">How do technologies rise and fall together? Examining co-diffusion patterns on GitHub to understand which tools complement each other and which compete — with implications for how innovation spreads.</p>
+        </div>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2024</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://www.tandfonline.com/doi/full/10.1080/01639625.2024.2394842" target="_blank">A Deviant Pathway To Respectability: The Enforcer Career Path In Professional Ice Hockey From 1997–2012</a></div>
+          <div class="research-venue">Deviant Behavior</div>
+          <p class="research-abstract">How do players build careers around fighting in a sport that's slowly eliminating it? Tracing the enforcer role across 15 years of NHL data to understand how deviant specializations achieve legitimacy.</p>
+        </div>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2023</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://journals.sagepub.com/doi/10.1177/10434631221137cold" target="_blank">The specialization of informal social control in a selective community: Fighting in the National Hockey League from 1947 to 2019</a></div>
+          <div class="research-venue">Rationality and Society</div>
+          <p class="research-abstract">Seven decades of NHL fights mapped as a social network. What emerges is a surprisingly structured system of informal enforcement — with implications for how communities regulate themselves without formal rules.</p>
+        </div>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2020</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041042" target="_blank">Public discourse and social network echo chambers driven by socio-cognitive biases</a></div>
+          <div class="research-venue">Physical Review X</div>
+          <p class="research-abstract">Why do online communities sort themselves into echo chambers? A model of how cognitive biases interact with network structure to drive polarization in public discourse.</p>
+        </div>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2020</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://www.nature.com/articles/s41599-022-01276-8" target="_blank">Polarization, abstention, and the median voter theorem</a></div>
+          <div class="research-venue">Humanities and Social Sciences Communications</div>
+          <p class="research-abstract">The median voter theorem predicts convergence — so why does polarization persist? Bringing abstention into the model changes the math, and the predictions, considerably.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">© 2025 Antonio Diego Sirianni</div>
+    <div class="footer-links">
+      <a href="https://github.com/" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+      <a href="/contact-info.html">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
