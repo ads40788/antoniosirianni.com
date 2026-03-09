@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fighting in the NHL — Antonio Sirianni</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1814;
+      --paper: #f5f2eb;
+      --accent: #c0392b;
+      --muted: #7a7568;
+      --rule: #d8d3c8;
+      --mono: 'DM Mono', monospace;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    html, body { height: 100%; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      flex-shrink: 0;
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    .page-header {
+      padding: 2rem 2rem 1.5rem;
+      border-bottom: 1px solid var(--rule);
+      flex-shrink: 0;
+    }
+
+    .page-header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: baseline;
+      gap: 1.5rem;
+    }
+
+    .page-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .page-title {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .app-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    iframe {
+      flex: 1;
+      width: 100%;
+      border: none;
+      min-height: calc(100vh - 120px);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .page-header-inner { flex-direction: column; gap: 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">A.D. Sirianni</a>
+    <ul class="nav-links">
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/#research">Research</a></li>
+      <li><a href="/teaching.html">Teaching</a></li>
+      <li><a href="/cv.html">CV</a></li>
+      <li><a href="/contact-info.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <span class="page-eyebrow">Sports Analytics</span>
+      <h1 class="page-title">Fighting in the NHL, 1947–2019</h1>
+    </div>
+  </div>
+
+  <div class="app-wrapper">
+    <iframe src="https://antoniosirianni.shinyapps.io/hockey2021/" title="Fighting in the NHL 1947-2019"></iframe>
+  </div>
+
+</body>
+</html>
