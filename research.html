@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research — Antonio Sirianni</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1814;
+      --paper: #f5f2eb;
+      --accent: #c0392b;
+      --muted: #7a7568;
+      --rule: #d8d3c8;
+      --card-bg: #eeeae0;
+      --mono: 'DM Mono', monospace;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    .page-header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .page-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .page-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .page-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .page-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .page-link {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid var(--rule);
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .page-link:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    /* SECTIONS */
+    .research-group {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .group-header {
+      margin-bottom: 2rem;
+    }
+
+    .group-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .group-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      max-width: 600px;
+    }
+
+    .research-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .research-item {
+      padding: 1.4rem 0;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 60px 1fr auto;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .research-year {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      padding-top: 0.2rem;
+    }
+
+    .research-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+
+    .research-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .research-title a:hover { color: var(--accent); }
+
+    .research-venue {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    .research-type {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      align-self: start;
+      margin-top: 0.2rem;
+    }
+
+    .research-abstract {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .interactive-embed {
+      margin-top: 1.5rem;
+      border: 1px solid var(--rule);
+      background: var(--card-bg);
+    }
+
+    .interactive-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .interactive-embed iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+      display: block;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--rule);
+    }
+
+    .footer-name {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--ink); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .research-item { grid-template-columns: 1fr; gap: 0.4rem; }
+      .research-type { display: inline-block; margin-bottom: 0.4rem; }
+      footer { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">A.D. Sirianni</a>
+    <ul class="nav-links">
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/research.html">Research</a></li>
+      <li><a href="/teaching.html">Teaching</a></li>
+      <li><a href="/cv_sirianni.pdf">CV</a></li>
+      <li><a href="/contact-info.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-eyebrow">Publications & Writing</div>
+    <h1 class="page-title">Research</h1>
+    <div class="page-links">
+      <a href="https://scholar.google.com/citations?user=gsDCtQgAAAAJ&hl=en" target="_blank" class="page-link">Google Scholar</a>
+      <a href="https://orcid.org/0000-0002-7710-3513" target="_blank" class="page-link">ORCID</a>
+      <a href="/cv_sirianni.pdf" class="page-link">Download CV</a>
+    </div>
+  </div>
+
+  <!-- GROUP 1: POLARIZATION -->
+  <div class="research-group">
+    <div class="group-header">
+      <h2 class="group-title">Polarization & Voter Choice</h2>
+      <p class="group-desc">How do social networks and voting incentives interact to produce and sustain political polarization? This work combines formal models, network simulation, and public writing to examine the mechanisms behind ideological sorting.</p>
+    </div>
+    <div class="research-list">
+
+      <div class="research-item">
+        <div class="research-year">2022</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://www.nature.com/articles/s41599-022-01056-0" target="_blank">Polarization, abstention, and the median voter theorem</a></div>
+          <div class="research-venue">Humanities and Social Sciences Communications · Jones, Sirianni & Fu</div>
+          <p class="research-abstract">The median voter theorem predicts convergence — so why does polarization persist? Bringing abstention and ideologically motivated voters into the model changes the math, and the predictions, considerably.</p>
+        </div>
+        <span class="research-type">Article</span>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2020</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041042" target="_blank">Public discourse and social network echo chambers driven by socio-cognitive biases</a></div>
+          <div class="research-venue">Physical Review X · Wang, Sirianni, Tang, Zheng & Fu</div>
+          <p class="research-abstract">Why do online communities sort themselves into echo chambers? A model of how cognitive biases interact with network structure to drive polarization in public discourse.</p>
+        </div>
+        <span class="research-type">Article</span>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2021</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://sinews.siam.org/Details-Page/understanding-social-network-echo-chambers-and-polarization" target="_blank">Understanding Social Network Echo Chambers and Polarization</a></div>
+          <div class="research-venue">SIAM News · Sirianni</div>
+          <p class="research-abstract">A public-facing overview of the echo chambers research — what the model shows, what it means, and why it matters for understanding online political discourse.</p>
+        </div>
+        <span class="research-type">Commentary</span>
+      </div>
+
+    </div>
+
+    <div class="interactive-embed">
+      <div class="interactive-label">Interactive — Preach, Persuade & Pivot: A Spatial Voting Simulation</div>
+      <iframe src="https://ads40788.github.io/PreachPersuadePivot/" title="Preach, Persuade & Pivot"></iframe>
+    </div>
+  </div>
+
+  <!-- GROUP 2: NETWORKS & DIFFUSION -->
+  <div class="research-group">
+    <div class="group-header">
+      <h2 class="group-title">Networks & Diffusion</h2>
+      <p class="group-desc">How do things — technologies, behaviors, information — spread through networks? And how do we measure the properties of those networks accurately? This work addresses both questions, from co-diffusion dynamics to sampling methodology.</p>
+    </div>
+    <div class="research-list">
+
+      <div class="research-item">
+        <div class="research-year">2024</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://academic.oup.com/pnasnexus/article/3/12/pgae549/7920551" target="_blank">Complements and competitors: Examining technological co-diffusion and relatedness on a collaborative coding platform</a></div>
+          <div class="research-venue">PNAS Nexus · Sirianni, Morgan, Zöller, Rogers & Schröder</div>
+          <p class="research-abstract">How do technologies rise and fall together? Examining co-diffusion patterns on GitHub to understand which tools complement each other and which compete — with implications for how innovation spreads.</p>
+          <a href="https://github.com/ads40788/InnovationCoDiffusion" target="_blank" style="font-family:var(--mono);font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:inline-block;margin-top:0.5rem;border:1px solid var(--rule);padding:0.2rem 0.6rem;border-radius:2px;">GitHub →</a>
+        </div>
+        <span class="research-type">Article</span>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2022</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://sociologicalscience.com/download/vol-8/august/SocSci_v8_285to307.pdf" target="_blank">Estimating Homophily in Social Networks Using Dyadic Predictions</a></div>
+          <div class="research-venue">Sociological Science · Berry, Sirianni, Weber, An & Macy</div>
+          <p class="research-abstract">A new method for estimating how much birds of a feather flock together online — using dyadic predictions to measure homophily even when demographic data is incomplete.</p>
+        </div>
+        <span class="research-type">Article</span>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2021</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://link.springer.com/chapter/10.1007/978-3-030-01129-1_5" target="_blank">Estimating group properties in online social networks with a classifier</a></div>
+          <div class="research-venue">Social Informatics · Berry, Sirianni, High, Kellum, Weber & Macy</div>
+          <p class="research-abstract">Using machine learning classifiers to infer group-level demographic properties in online networks — a practical tool for studying populations where direct measurement isn't possible.</p>
+        </div>
+        <span class="research-type">Article</span>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2021</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://www.sciencedirect.com/science/article/pii/S0378873320300617" target="_blank">Bias decomposition and estimator performance in respondent-driven sampling</a></div>
+          <div class="research-venue">Social Networks · Sirianni, Cameron, Shi & Heckathorn</div>
+          <p class="research-abstract">Respondent-driven sampling is widely used to study hard-to-reach populations — but how biased are its estimates, and why? A systematic decomposition of where the errors come from.</p>
+        </div>
+        <span class="research-type">Article</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GROUP 3: COMPETITION & COORDINATION -->
+  <div class="research-group">
+    <div class="group-header">
+      <h2 class="group-title">Competition & Coordination</h2>
+      <p class="group-desc">How do people coordinate, compete, and enforce norms — especially in communities defined by their informal rules? This work spans professional hockey, organizational diversity, and the sociology of stigmatized careers.</p>
+    </div>
+    <div class="research-list">
+
+      <div class="research-item">
+        <div class="research-year">2024</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://www.tandfonline.com/doi/full/10.1080/01639625.2024.2394842" target="_blank">A Deviant Pathway To Respectability: The Enforcer Career Path In Professional Ice Hockey From 1997–2012</a></div>
+          <div class="research-venue">Deviant Behavior · Sirianni</div>
+          <p class="research-abstract">How do players build careers around fighting in a sport that's slowly eliminating it? Tracing the enforcer role across 15 years of NHL data to understand how deviant specializations achieve legitimacy.</p>
+          <a href="https://github.com/ads40788/EnforcerSpecialization" target="_blank" style="font-family:var(--mono);font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:inline-block;margin-top:0.5rem;border:1px solid var(--rule);padding:0.2rem 0.6rem;border-radius:2px;">GitHub →</a>
+        </div>
+        <span class="research-type">Article</span>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2024</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://www.tandfonline.com/doi/full/10.1080/0022250X.2024.2315659" target="_blank">Attachment Preferences in Diverse Collective Problem-Solving Ventures and Systemic Performance</a></div>
+          <div class="research-venue">Journal of Mathematical Sociology · Gomez, Sirianni & Schweiger</div>
+          <p class="research-abstract">How do attachment preferences in diverse teams shape collective outcomes? A formal model of how individual-level choices aggregate into system-level performance in problem-solving groups.</p>
+        </div>
+        <span class="research-type">Article</span>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2023</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://journals.sagepub.com/doi/10.1177/10434631221137286" target="_blank">The specialization of informal social control in a selective community: Fighting in the National Hockey League from 1947 to 2019</a></div>
+          <div class="research-venue">Rationality and Society · Sirianni</div>
+          <p class="research-abstract">Seven decades of NHL fights mapped as a social network. What emerges is a surprisingly structured system of informal enforcement — with implications for how communities regulate themselves without formal rules.</p>
+          <a href="https://github.com/ads40788/HockeyFights2021" target="_blank" style="font-family:var(--mono);font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:inline-block;margin-top:0.5rem;border:1px solid var(--rule);padding:0.2rem 0.6rem;border-radius:2px;">GitHub →</a>
+        </div>
+        <span class="research-type">Article</span>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2019</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://ecommons.cornell.edu/server/api/core/bitstreams/6f07457b-fc1c-4ddd-8047-eb450de27bfd/content" target="_blank">The Social Structure of Stigmatized Careers</a></div>
+          <div class="research-venue">Doctoral Dissertation · Cornell University · Sirianni</div>
+          <p class="research-abstract">How do careers built around stigmatized activities — like professional fighting — acquire social structure and legitimacy over time? The dissertation that launched the hockey networks work.</p>
+        </div>
+        <span class="research-type">Dissertation</span>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2018</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://www.emerald.com/books/edited-volume/13140/chapter-abstract/83600837/Expectations-and-Coordination-in-Small-Groups?redirectedFrom=fulltext" target="_blank">Expectations and Coordination in Small Groups</a></div>
+          <div class="research-venue">Advances in Group Processes · Sirianni</div>
+          <p class="research-abstract">How do shared expectations emerge in small groups, and how do they enable coordination? An examination of the micro-level mechanisms behind collective behavior.</p>
+          <a href="https://github.com/ads40788/ExpectationsAndCoordination" target="_blank" style="font-family:var(--mono);font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:inline-block;margin-top:0.5rem;border:1px solid var(--rule);padding:0.2rem 0.6rem;border-radius:2px;">GitHub →</a>
+        </div>
+        <span class="research-type">Article</span>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2018</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://link.springer.com/chapter/10.1007/978-3-030-01159-8_27" target="_blank">The Effect of Service Cost, Quality, and Location on the Length of Online Reviews</a></div>
+          <div class="research-venue">Social Informatics · Sirianni</div>
+          <p class="research-abstract">Online reviews as informal sanctioning — what drives people to take the time to write them? An analysis of how service characteristics shape review behavior on platforms like Angie's List.</p>
+        </div>
+        <span class="research-type">Article</span>
+      </div>
+
+    </div>
+
+    <div class="interactive-embed">
+      <div class="interactive-label">Interactive — Fighting in the NHL, 1947–2019</div>
+      <iframe src="https://antoniosirianni.shinyapps.io/hockey2021/" title="Fighting in the NHL 1947-2019"></iframe>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-name">© 2025 Antonio Diego Sirianni</div>
+    <div class="footer-links">
+      <a href="https://github.com/ads40788" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+      <a href="/contact-info.html">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
