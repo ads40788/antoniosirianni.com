@@ -7,119 +7,54 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --ink: #1a1814;
-      --paper: #f5f2eb;
-      --accent: #c0392b;
-      --muted: #7a7568;
-      --rule: #d8d3c8;
-      --mono: 'DM Mono', monospace;
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans: 'DM Sans', sans-serif;
+      --ink: #1a1814; --paper: #f5f2eb; --accent: #c0392b;
+      --muted: #7a7568; --rule: #d8d3c8; --card-bg: #eeeae0;
+      --mono: 'DM Mono', monospace; --serif: 'Playfair Display', Georgia, serif; --sans: 'DM Sans', sans-serif;
     }
-
-    html, body { height: 100%; }
-
-    body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-weight: 300;
-      -webkit-font-smoothing: antialiased;
-      display: flex;
-      flex-direction: column;
-    }
-
-    nav {
-      background: var(--paper);
-      border-bottom: 1px solid var(--rule);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
-      flex-shrink: 0;
-    }
-
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    nav { background: var(--paper); border-bottom: 1px solid var(--rule); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--ink); }
-
-    .page-header {
-      padding: 2rem 2rem 1.5rem;
-      border-bottom: 1px solid var(--rule);
-      flex-shrink: 0;
-    }
-
-    .page-header-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: baseline;
-      gap: 1.5rem;
-    }
-
-    .page-eyebrow {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .page-title {
-      font-family: var(--serif);
-      font-size: 1.6rem;
-      font-weight: 700;
-    }
-
-    .app-wrapper {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-height: 0;
-    }
-
-    iframe {
-      flex: 1;
-      width: 100%;
-      border: none;
-      min-height: calc(100vh - 120px);
-    }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .page-header-inner { flex-direction: column; gap: 0.4rem; }
-    }
+    .page-header { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem 2rem; border-bottom: 1px solid var(--rule); }
+    .page-eyebrow { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.6rem; }
+    .page-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+    .page-title { font-family: var(--serif); font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+    .page-intro { font-size: 0.95rem; color: var(--muted); max-width: 640px; line-height: 1.75; }
+    section { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+    .section-label { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); }
+    .research-list { display: flex; flex-direction: column; }
+    .research-item { padding: 1.5rem 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 60px 1fr; gap: 1.5rem; align-items: start; }
+    .research-year { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); padding-top: 0.2rem; }
+    .research-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; line-height: 1.4; }
+    .research-title a { color: inherit; text-decoration: none; }
+    .research-title a:hover { color: var(--accent); }
+    .research-venue { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+    .research-abstract { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+    .github-link { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; display: inline-block; margin-top: 0.5rem; border: 1px solid var(--rule); padding: 0.2rem 0.6rem; border-radius: 2px; transition: all 0.2s; }
+    .github-link:hover { color: var(--ink); border-color: var(--ink); }
+    /* INTERACTIVE CARD */
+    .interactive-card { border: 1px solid var(--rule); background: var(--card-bg); display: grid; grid-template-columns: 220px 1fr; overflow: hidden; text-decoration: none; color: inherit; transition: background 0.2s; }
+    .interactive-card:hover { background: #e5e1d6; }
+    .interactive-card-thumb { width: 220px; aspect-ratio: 3/4; object-fit: cover; display: block; }
+    .interactive-card-thumb-placeholder { width: 220px; aspect-ratio: 3/4; background: var(--rule); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; }
+    .interactive-card-body { padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; }
+    .interactive-card-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+    .interactive-card-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; line-height: 1.3; }
+    .interactive-card-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.5rem; }
+    .interactive-card-cta { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 0.4rem; }
+    footer { max-width: 1100px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--rule); }
+    .footer-name { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.1em; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--ink); }
+    @media (max-width: 768px) { .nav-links { display: none; } .research-item { grid-template-columns: 1fr; gap: 0.4rem; } .interactive-card { grid-template-columns: 1fr; } .interactive-card-thumb, .interactive-card-thumb-placeholder { width: 100%; aspect-ratio: 16/9; } footer { flex-direction: column; gap: 1rem; } }
   </style>
-<!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPFMH9D8RB"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -129,28 +64,84 @@
   </script>
 </head>
 <body>
-
   <nav>
     <a href="/" class="nav-logo">A.D. Sirianni</a>
     <ul class="nav-links">
       <li><a href="/#projects">Projects</a></li>
-      <li><a href="/#research">Research</a></li>
+      <li><a href="/research.html">Research</a></li>
       <li><a href="/teaching.html">Teaching</a></li>
-      <li><a href="/cv.html">CV</a></li>
+      <li><a href="/cv_sirianni.pdf">CV</a></li>
       <li><a href="/contact-info.html">Contact</a></li>
     </ul>
   </nav>
 
   <div class="page-header">
-    <div class="page-header-inner">
-      <span class="page-eyebrow">Sports Analytics</span>
-      <h1 class="page-title">Fighting in the NHL, 1947–2019</h1>
+    <div class="page-eyebrow">Sports Analytics</div>
+    <h1 class="page-title">Fighting in the NHL</h1>
+    <p class="page-intro">
+      Seven decades of on-ice altercations mapped as a social network. What looks like chaos turns out to have a surprisingly coherent structure — with implications for how communities enforce norms without formal rules.
+    </p>
+  </div>
+
+  <section>
+    <div class="section-label">Research</div>
+    <div class="research-list">
+
+      <div class="research-item">
+        <div class="research-year">2024</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://www.tandfonline.com/doi/full/10.1080/01639625.2024.2394842" target="_blank">A Deviant Pathway To Respectability: The Enforcer Career Path In Professional Ice Hockey From 1997–2012</a></div>
+          <div class="research-venue">Deviant Behavior · Sirianni</div>
+          <p class="research-abstract">How do players build careers around fighting in a sport that's slowly eliminating it? Tracing the enforcer role across 15 years of NHL data to understand how deviant specializations achieve legitimacy.</p>
+          <a href="https://github.com/ads40788/EnforcerSpecialization" target="_blank" class="github-link">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2023</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://journals.sagepub.com/doi/10.1177/10434631221137286" target="_blank">The specialization of informal social control in a selective community: Fighting in the National Hockey League from 1947 to 2019</a></div>
+          <div class="research-venue">Rationality and Society · Sirianni</div>
+          <p class="research-abstract">Seven decades of NHL fights mapped as a social network. What emerges is a surprisingly structured system of informal enforcement — with implications for how communities regulate themselves without formal rules.</p>
+          <a href="https://github.com/ads40788/HockeyFights2021" target="_blank" class="github-link">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2019</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://ecommons.cornell.edu/server/api/core/bitstreams/6f07457b-fc1c-4ddd-8047-eb450de27bfd/content" target="_blank">The Social Structure of Stigmatized Careers</a></div>
+          <div class="research-venue">Doctoral Dissertation · Cornell University · Sirianni</div>
+          <p class="research-abstract">How do careers built around stigmatized activities acquire social structure and legitimacy over time? The dissertation that launched the hockey networks work.</p>
+        </div>
+      </div>
+
     </div>
-  </div>
+  </section>
 
-  <div class="app-wrapper">
-    <iframe src="https://antoniosirianni.shinyapps.io/hockey2021/" title="Fighting in the NHL 1947-2019"></iframe>
-  </div>
+  <section style="padding-top: 0;">
+    <div class="section-label">Interactive Dashboard</div>
+    <a href="/hockey-app.html" class="interactive-card">
+      <img src="hockeyfightdash.jpg" alt="NHL Fighting Dashboard" class="interactive-card-thumb" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="interactive-card-thumb-placeholder" style="display:none;">[ screenshot ]</div>
+      <div class="interactive-card-body">
+        <div>
+          <div class="interactive-card-label">Interactive · R Shiny</div>
+          <div class="interactive-card-title">NHL Fighting Dashboard, 1947–2019</div>
+          <p class="interactive-card-desc">Explore seven decades of fighting data — network visualizations, player profiles, team trends, and era-by-era breakdowns. Built in R Shiny.</p>
+        </div>
+        <span class="interactive-card-cta">Launch dashboard →</span>
+      </div>
+    </a>
+  </section>
 
+  <footer>
+    <div class="footer-name">© 2025 Antonio Diego Sirianni</div>
+    <div class="footer-links">
+      <a href="https://github.com/ads40788" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/antonio-sirianni-1533b216/" target="_blank">LinkedIn</a>
+      <a href="/contact-info.html">Contact</a>
+    </div>
+  </footer>
 </body>
 </html>

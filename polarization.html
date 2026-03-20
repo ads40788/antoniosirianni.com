@@ -7,246 +7,51 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --ink: #1a1814;
-      --paper: #f5f2eb;
-      --accent: #c0392b;
-      --muted: #7a7568;
-      --rule: #d8d3c8;
-      --card-bg: #eeeae0;
-      --mono: 'DM Mono', monospace;
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans: 'DM Sans', sans-serif;
+      --ink: #1a1814; --paper: #f5f2eb; --accent: #c0392b;
+      --muted: #7a7568; --rule: #d8d3c8; --card-bg: #eeeae0;
+      --mono: 'DM Mono', monospace; --serif: 'Playfair Display', Georgia, serif; --sans: 'DM Sans', sans-serif;
     }
-
-    body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-weight: 300;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    nav {
-      background: var(--paper);
-      border-bottom: 1px solid var(--rule);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 56px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    nav { background: var(--paper); border-bottom: 1px solid var(--rule); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--ink); }
-
-    .page-header {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 3rem 2rem 2rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .page-eyebrow {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .page-eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 24px;
-      height: 1px;
-      background: var(--accent);
-    }
-
-    .page-title {
-      font-family: var(--serif);
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .page-intro {
-      font-size: 0.95rem;
-      color: var(--muted);
-      max-width: 640px;
-      line-height: 1.75;
-    }
-
-    /* PAPERS */
-    section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-
-    .section-label {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 1px solid var(--rule);
-    }
-
-    .research-list {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .research-item {
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--rule);
-      display: grid;
-      grid-template-columns: 60px 1fr;
-      gap: 1.5rem;
-      align-items: start;
-    }
-
-    .research-year {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      padding-top: 0.2rem;
-    }
-
-    .research-title {
-      font-family: var(--serif);
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-      line-height: 1.4;
-    }
-
-    .research-title a {
-      color: inherit;
-      text-decoration: none;
-    }
-
+    .page-header { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem 2rem; border-bottom: 1px solid var(--rule); }
+    .page-eyebrow { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.6rem; }
+    .page-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+    .page-title { font-family: var(--serif); font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+    .page-intro { font-size: 0.95rem; color: var(--muted); max-width: 640px; line-height: 1.75; }
+    section { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+    .section-label { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--rule); }
+    .research-list { display: flex; flex-direction: column; }
+    .research-item { padding: 1.5rem 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 60px 1fr; gap: 1.5rem; align-items: start; }
+    .research-year { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); padding-top: 0.2rem; }
+    .research-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; line-height: 1.4; }
+    .research-title a { color: inherit; text-decoration: none; }
     .research-title a:hover { color: var(--accent); }
-
-    .research-venue {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-      margin-bottom: 0.4rem;
-    }
-
-    .research-abstract {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    /* GAME */
-    .game-section {
-      border-top: 1px solid var(--rule);
-    }
-
-    .game-section section {
-      padding-top: 3rem;
-    }
-
-    .game-wrapper {
-      width: 100%;
-      border: 1px solid var(--rule);
-      background: var(--card-bg);
-      overflow: hidden;
-    }
-
-    .game-wrapper iframe {
-      width: 100%;
-      height: 800px;
-      border: none;
-      display: block;
-    }
-
-    footer {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--rule);
-      margin-top: 3rem;
-    }
-
-    .footer-name {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .footer-links a {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
+    .research-venue { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+    .research-abstract { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+    .interactive-card { border: 1px solid var(--rule); background: var(--card-bg); display: grid; grid-template-columns: 220px 1fr; overflow: hidden; text-decoration: none; color: inherit; transition: background 0.2s; }
+    .interactive-card:hover { background: #e5e1d6; }
+    .interactive-card-thumb { width: 220px; aspect-ratio: 3/4; object-fit: cover; display: block; }
+    .interactive-card-thumb-placeholder { width: 220px; aspect-ratio: 3/4; background: var(--rule); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; }
+    .interactive-card-body { padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; }
+    .interactive-card-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+    .interactive-card-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; line-height: 1.3; }
+    .interactive-card-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.5rem; }
+    .interactive-card-cta { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); display: inline-flex; align-items: center; gap: 0.4rem; }
+    footer { max-width: 1100px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--rule); }
+    .footer-name { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.1em; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
     .footer-links a:hover { color: var(--ink); }
-
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .research-item { grid-template-columns: 1fr; gap: 0.4rem; }
-      .game-wrapper iframe { height: 600px; }
-      footer { flex-direction: column; gap: 1rem; }
-    }
+    @media (max-width: 768px) { .nav-links { display: none; } .research-item { grid-template-columns: 1fr; gap: 0.4rem; } .interactive-card { grid-template-columns: 1fr; } .interactive-card-thumb, .interactive-card-thumb-placeholder { width: 100%; aspect-ratio: 16/9; } footer { flex-direction: column; gap: 1rem; } }
   </style>
-<!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPFMH9D8RB"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -256,14 +61,13 @@
   </script>
 </head>
 <body>
-
   <nav>
     <a href="/" class="nav-logo">A.D. Sirianni</a>
     <ul class="nav-links">
       <li><a href="/#projects">Projects</a></li>
-      <li><a href="/#research">Research</a></li>
+      <li><a href="/research.html">Research</a></li>
       <li><a href="/teaching.html">Teaching</a></li>
-      <li><a href="/cv.html">CV</a></li>
+      <li><a href="/cv_sirianni.pdf">CV</a></li>
       <li><a href="/contact-info.html">Contact</a></li>
     </ul>
   </nav>
@@ -272,9 +76,7 @@
     <div class="page-eyebrow">Political Sociology</div>
     <h1 class="page-title">Polarization & Political Behavior</h1>
     <p class="page-intro">
-      Why does political polarization persist even when basic theory predicts convergence? 
-      This work combines formal models, network theory, and simulation to understand 
-      how social sorting, abstention, and echo chambers shape political outcomes.
+      Why does political polarization persist even when basic theory predicts convergence? This work combines formal models, network theory, and simulation to understand how social sorting, abstention, and echo chambers shape political outcomes.
     </p>
   </div>
 
@@ -285,57 +87,56 @@
       <div class="research-item">
         <div class="research-year">2022</div>
         <div class="research-content">
-          <div class="research-title">
-            <a href="https://www.nature.com/articles/s41599-022-01056-0" target="_blank">
-              Polarization, abstention, and the median voter theorem
-            </a>
-          </div>
-          <div class="research-venue">Humanities and Social Sciences Communications</div>
-          <p class="research-abstract">
-            The median voter theorem predicts convergence — so why does polarization persist? 
-            Bringing abstention and ideologically motivated voters into the model changes 
-            the math, and the predictions, considerably.
-          </p>
+          <div class="research-title"><a href="https://www.nature.com/articles/s41599-022-01056-0" target="_blank">Polarization, abstention, and the median voter theorem</a></div>
+          <div class="research-venue">Humanities and Social Sciences Communications · Jones, Sirianni & Fu</div>
+          <p class="research-abstract">The median voter theorem predicts convergence — so why does polarization persist? Bringing abstention and ideologically motivated voters into the model changes the math, and the predictions, considerably.</p>
         </div>
       </div>
 
       <div class="research-item">
         <div class="research-year">2020</div>
         <div class="research-content">
-          <div class="research-title">
-            <a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041042" target="_blank">
-              Public discourse and social network echo chambers driven by socio-cognitive biases
-            </a>
-          </div>
-          <div class="research-venue">Physical Review X</div>
-          <p class="research-abstract">
-            Why do online communities sort themselves into echo chambers? A model of how 
-            cognitive biases interact with network structure to drive polarization 
-            in public discourse.
-          </p>
+          <div class="research-title"><a href="https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041042" target="_blank">Public discourse and social network echo chambers driven by socio-cognitive biases</a></div>
+          <div class="research-venue">Physical Review X · Wang, Sirianni, Tang, Zheng & Fu</div>
+          <p class="research-abstract">Why do online communities sort themselves into echo chambers? A model of how cognitive biases interact with network structure to drive polarization in public discourse.</p>
+        </div>
+      </div>
+
+      <div class="research-item">
+        <div class="research-year">2021</div>
+        <div class="research-content">
+          <div class="research-title"><a href="https://sinews.siam.org/Details-Page/understanding-social-network-echo-chambers-and-polarization" target="_blank">Understanding Social Network Echo Chambers and Polarization</a></div>
+          <div class="research-venue">SIAM News · Sirianni</div>
+          <p class="research-abstract">A public-facing overview of the echo chambers research — what the model shows, what it means, and why it matters for understanding online political discourse.</p>
         </div>
       </div>
 
     </div>
   </section>
 
-  <div class="game-section">
-    <section>
-      <div class="section-label">Interactive — Preach, Persuade & Pivot</div>
-      <div class="game-wrapper">
-        <iframe src="https://ads40788.github.io/PreachPersuadePivot/" title="Preach, Persuade & Pivot"></iframe>
+  <section style="padding-top: 0;">
+    <div class="section-label">Interactive Simulation</div>
+    <a href="/ppp-game.html" class="interactive-card">
+      <img src="preachpersuadepivot.jpg" alt="Preach, Persuade & Pivot" class="interactive-card-thumb" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="interactive-card-thumb-placeholder" style="display:none;">[ screenshot ]</div>
+      <div class="interactive-card-body">
+        <div>
+          <div class="interactive-card-label">Interactive · Simulation</div>
+          <div class="interactive-card-title">Preach, Persuade & Pivot</div>
+          <p class="interactive-card-desc">A spatial voting simulation game exploring how candidates navigate coalitions, messaging, and voter persuasion — built at the intersection of game design and formal political theory.</p>
+        </div>
+        <span class="interactive-card-cta">Play the game →</span>
       </div>
-    </section>
-  </div>
+    </a>
+  </section>
 
   <footer>
     <div class="footer-name">© 2025 Antonio Diego Sirianni</div>
     <div class="footer-links">
-      <a href="https://github.com/" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/ads40788" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/antonio-sirianni-1533b216/" target="_blank">LinkedIn</a>
       <a href="/contact-info.html">Contact</a>
     </div>
   </footer>
-
 </body>
 </html>
