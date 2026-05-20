@@ -334,6 +334,16 @@
       color: var(--muted);
     }
 
+    .project-card-img {
+      width: calc(100% + 3.6rem);
+      margin: -1.8rem -1.8rem 1.2rem -1.8rem;
+      height: 180px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(10%);
+    }
+
     /* ── RESEARCH ── */
     .research-list {
       display: flex;
@@ -605,8 +615,8 @@
         <div class="project-domain">Political Sociology</div>
         <div class="project-title">Polarization & Political Behavior</div>
         <p class="project-desc">
-          Research and interactive work on homophily, the median voter, 
-          and how social sorting shapes political discourse — including 
+          Research and interactive work on homophily, the median voter,
+          and how social sorting shapes political discourse — including
           a simulation game exploring how campaigns navigate coalitions.
         </p>
         <div class="project-meta">
@@ -615,6 +625,25 @@
           <span>Simulation</span>
           <span>·</span>
           <span>Published Research</span>
+        </div>
+      </a>
+
+      <a href="https://buffalo-elections.streamlit.app/" target="_blank" class="project-card">
+        <img src="BuffaloElectionScreenshot.png" alt="Buffalo Mayoral Election Dashboard" class="project-card-img">
+        <div class="project-domain">Political Sociology</div>
+        <div class="project-title">Buffalo Mayoral Election Analysis</div>
+        <p class="project-desc">
+          Twenty-five years of Buffalo mayoral results mapped ward by ward.
+          The centerpiece: Byron Brown's 2021 write-in victory — after losing
+          the Democratic primary, he ran strongest in the very districts where
+          his 2017 opponent had threatened him most.
+        </p>
+        <div class="project-meta">
+          <span>Election Data</span>
+          <span>·</span>
+          <span>Interactive</span>
+          <span>·</span>
+          <span>Streamlit</span>
         </div>
       </a>
 
