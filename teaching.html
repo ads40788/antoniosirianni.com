@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teaching — Antonio Sirianni</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1814;
+      --paper: #f5f2eb;
+      --accent: #c0392b;
+      --muted: #7a7568;
+      --rule: #d8d3c8;
+      --card-bg: #eeeae0;
+      --mono: 'DM Mono', monospace;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    .page-header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .page-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .page-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .page-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .page-intro {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    /* SECTIONS */
+    .teaching-group {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .teaching-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .teaching-item {
+      padding: 1.6rem 0;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .teaching-offering {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 0.7rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px dashed var(--rule);
+    }
+
+    .teaching-offering strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .teaching-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+
+    .teaching-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 620px;
+    }
+
+    .teaching-link {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 0.8rem;
+      border: 1px solid var(--rule);
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .teaching-link:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    .teaching-type {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.15rem 0.45rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      align-self: start;
+      margin-top: 0.2rem;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--rule);
+    }
+
+    .footer-name {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--ink); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .teaching-item { grid-template-columns: 1fr; gap: 0.4rem; }
+      .teaching-type { display: inline-block; margin-bottom: 0.4rem; }
+      footer { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+<!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BPFMH9D8RB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-BPFMH9D8RB');
+  </script>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">A.D. Sirianni</a>
+    <ul class="nav-links">
+      <li><a href="/#projects">Projects</a></li>
+      <li><a href="/research.html">Research</a></li>
+      <li><a href="/teaching.html">Teaching</a></li>
+      <li><a href="/cv_sirianni.pdf">CV</a></li>
+      <li><a href="/contact-info.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-eyebrow">Courses & Instruction</div>
+    <h1 class="page-title">Teaching</h1>
+    <p class="page-intro">Courses I've designed and taught on social networks and sociology, each built to introduce students to a new way of thinking and analysis.</p>
+  </div>
+
+  <div class="teaching-group">
+    <div class="teaching-list">
+
+      <div class="teaching-item">
+        <div class="teaching-content">
+          <div class="teaching-title">Social Network Analysis</div>
+          <div class="teaching-offering">
+            <strong>Georgetown University</strong> · McCourt School of Public Policy · PPOL 6816, Spring 2023 and Spring 2025<br>
+            <strong>Dartmouth College</strong> · Program in Quantitative Social Science · QSS 41, Spring 2020, Spring 2021, and Fall 2021
+          </div>
+          <p class="teaching-desc">An introduction to network analysis: vocabulary, metrics, and the mechanisms behind tie formation and diffusion, built around an independent project in which students construct their own network dataset from scratch. At Dartmouth, this culminated in a mini-conference where students presented findings ranging from alliance networks between nations to voting patterns on reality TV.</p>
+          <a href="/ppol6816-social-network-analysis-syllabus.pdf" target="_blank" class="teaching-link">Syllabus (PDF) →</a>
+          <a href="https://qss.dartmouth.edu/news/2021/11/qss-41-students-present-independent-research-projects" target="_blank" class="teaching-link">Read the writeup →</a>
+        </div>
+        <span class="teaching-type">Grad & Undergrad</span>
+      </div>
+
+      <div class="teaching-item">
+        <div class="teaching-content">
+          <div class="teaching-title">Introduction to Sociology</div>
+          <div class="teaching-offering">
+            <strong>Cornell University</strong> · Department of Sociology · SOC 1101, Summer 2018 and Summer 2019
+          </div>
+          <p class="teaching-desc">An accelerated summer-session survey of sociology as a field, from classical theory (Durkheim, Marx, Weber, Mead) to contemporary work on inequality, deviance, and social networks, taught as instructor of record while a PhD student.</p>
+          <a href="/soc1101-intro-sociology-syllabus.pdf" target="_blank" class="teaching-link">Syllabus (PDF) →</a>
+        </div>
+        <span class="teaching-type">Undergraduate</span>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-name">© 2026 Antonio Diego Sirianni</div>
+    <div class="footer-links">
+      <a href="https://github.com/ads40788" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/antonio-sirianni-1533b216/" target="_blank">LinkedIn</a>
+      <a href="/contact-info.html">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
